@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import pandas as pd
 import pickle
 from statsmodels.tsa.arima.model import ARIMA
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -46,6 +47,9 @@ def index():
         forecast = generate_forecast(p, d, q)
 
     return render_template("index.html", forecast=forecast)
+from waitress import serve
+from app import app  # Assuming your Flask app is in app.py
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=8080)
+

@@ -1,4 +1,4 @@
-Flask
-pandas
-statsmodels
-
+flask==2.1.1
+pandas==1.4.2
+statsmodels==0.13.2
+gunicorn==20.1.0
